@@ -1,4 +1,6 @@
+import django
 from django.db import models
+from django.utils.timezone import now
 
 
 class Task(models.Model):
@@ -12,3 +14,4 @@ class Task(models.Model):
 
     description = models.CharField(max_length=255)
     status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=TODO)
+    time_create = models.DateTimeField(default=now)
